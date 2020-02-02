@@ -8,4 +8,4 @@ push: build
 	docker push ${REGISTRY}${PROJECT_NAME}
 
 deploy: push
-	gcloud builds submit --tag ${REGISTRY}${PROJECT_NAME}
+	gcloud run deploy --image ${DOCKER_REGISTRY}/${PROJECT_NAME}:${TAG} --platform managed
